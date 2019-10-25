@@ -1,5 +1,5 @@
 # align16_access
-The PCLer describe if the access of data is align to 16bit, programer will get a good performance, but the accessory is very little in modern CPU(i7).
+The PCLer describe if the access of data is align to 16 byte, programer will get a good performance, but the accessory is very little in modern CPU(i7).
 
 # Access
 1000W*100 times.
