@@ -1,0 +1,58 @@
+#include <iostream>
+#include <stdio.h>
+#include<time.h>
+#include <vector>
+
+struct point {
+	float x, y, z;
+};
+struct point16 {
+	float x, y, z, w;
+};
+const int ARR_SIZE = 10000000;
+int main()
+{
+	std::vector<point> arr1(ARR_SIZE);
+	std::vector<point16> arr2(ARR_SIZE);
+	printf("The point12 size is:%d.\n", sizeof(point));
+	printf("The point16 size is:%d.\n", sizeof(point16));
+	const int test_count = 100;
+	{
+		clock_t t;
+		t = clock();
+		for (int i = 0; i < test_count; i++)
+		{
+			for (int k = 0; k < ARR_SIZE; k++)
+			{
+				arr1[k].x = k;
+				arr1[k].y = k;
+				arr1[k].z = k;
+			}
+		}
+		t = clock() - t;
+
+		printf("point12 took me %d clicks (%f seconds).\n", t, ((float)t) / CLOCKS_PER_SEC);
+	}
+
+	{
+		clock_t t;
+		t = clock();
+		for (int i = 0; i < test_count; i++)
+		{
+			for (int k = 0; k < ARR_SIZE; k++)
+			{
+				arr2[k].x = k;
+				arr2[k].y = k;
+				arr2[k].z = k;
+			}
+		}
+		
+		t = clock() - t;
+
+		printf("point16 took me %d clicks (%f seconds).\n", t, ((float)t) / CLOCKS_PER_SEC);
+	}
+	
+
+	system("pause");
+	return 0;
+}
